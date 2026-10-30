@@ -137,7 +137,3 @@ def shuffle_dataset():
         print(f"  {label}: {count}")
 
     return df
-
-
-if __name__ == "__main__":
-    shuffle_dataset()
