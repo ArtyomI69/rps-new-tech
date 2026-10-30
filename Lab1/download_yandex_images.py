@@ -7,6 +7,7 @@ import time
 REQUEST_URL = 'https://yandex.ru/images/search?text='
 
 def download_yandex_images(text):
+    """Скачивает изображения с Яндекс.Картинок по запросу ``text`` """
     with sync_playwright() as p:
         browser = p.webkit.launch(headless=False)
         page = browser.new_page()
