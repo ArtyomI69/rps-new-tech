@@ -10,6 +10,7 @@ class State:
     def __init__(self):
         self.zebra = next(zebra)
         self.bay_horse = next(bay_horse)
+        self.loop = False
 
 
 state = State()
@@ -22,11 +23,20 @@ def handle_next_zebra_btn_click():
 def handle_next_bay_horse_btn_click():
     state.bay_horse = next(bay_horse)
 
+def handle_loop_change(e):
+    """Обработчик изменения чекбокса loop."""
+    state.loop = e.value
+    bay_horse.set_loop(e.value)
+    zebra.set_loop(e.value)
+
 
 @ui.page('/')
 def index():
     # Кнопка перехода на страницу /dataset-form
     ui.button('Перейти к форме датасета', on_click=lambda: ui.navigate.to('/dataset-form'))
+
+    # Чекбокс зацикливания
+    ui.checkbox('Loop', value=state.loop, on_change=handle_loop_change)
 
     with ui.row().classes('w-full no-wrap'):
         # Левая половина — зебра

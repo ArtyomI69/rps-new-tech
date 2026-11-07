@@ -85,7 +85,7 @@ def shuffle_dataset():
     rows = []
 
     for src_path, num in zip(files, numbers):
-        new_name = f"{num}{src_path.suffix.lower()}"
+        new_name = f"{num:04d}{src_path.suffix.lower()}"
         dst_path = SHUFFLED_DIR / new_name
 
         if COPY_FILES:

@@ -6,10 +6,11 @@ from dataset_iterator import DatasetIterator
 # copy_files('../Lab1/dataset/zebra', './dataset')
 # copy_files('../Lab1/dataset/bay horse', './dataset')
 # build_annotation()
-shuffle_dataset()
+# shuffle_dataset()
 
 
 bay_horse_dataset = DatasetIterator("bay horse")
+bay_horse_dataset.set_loop(True)
 for path in bay_horse_dataset:
     print(path)
 

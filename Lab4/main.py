@@ -10,6 +10,8 @@ from filter_by_class import filter_by_class, filter_by_class_and_size
 df = pd.read_csv('annotation.csv', sep=';', encoding='utf-8-sig')
 df = df[['class_label', 'absolute_path']]
 
+print(df.head(5))
+
 df['class_id'] = pd.Categorical(
     df['class_label'],
     categories=['bay horse', 'zebra']
