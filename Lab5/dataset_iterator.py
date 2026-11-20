@@ -2,6 +2,14 @@ import pandas as pd
 
 
 class DatasetIterator:
+    """
+    Итератор по relative_path изображений одного класса из annotation.csv
+    (разделитель ';', UTF-8). Состояние хранится в самом объекте:
+    повторный for продолжит с текущей позиции, а не начнёт заново.
+
+    По умолчанию обход одноразовый (StopIteration в конце);
+    бесконечный цикл включается через set_loop(True).
+    """
     def __init__(self, class_label, annotation_path="./annotation.csv"):
         self.class_label = class_label
         self.loop = False
@@ -25,13 +33,7 @@ class DatasetIterator:
         return path
 
     def set_loop(self, loop: bool, reset: bool = False) -> None:
-        """
-        Включает или выключает режим зацикливания.
-
-        :param loop: True — итератор будет бесконечно ходить по кругу,
-                     False — остановится (StopIteration) после последнего элемента.
-        :param reset: если True — сбрасывает текущую позицию в начало.
-        """
+        """Включает/выключает зацикливание; reset=True — сброс в начало."""
         self.loop = bool(loop)
         if reset:
             self._index = 0

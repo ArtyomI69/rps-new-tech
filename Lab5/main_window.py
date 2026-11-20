@@ -9,7 +9,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from nicegui import ui
+import os
+from nicegui import app, ui
 
 from build_annotation import build_annotation
 from shuffle_dataset import shuffle_dataset
@@ -650,5 +651,6 @@ def lab4():
 
     btn10.on('click', run_task_10)
 
+app.add_static_files('/dataset', os.path.join(os.path.dirname(__file__), 'dataset'))
 
 ui.run()
