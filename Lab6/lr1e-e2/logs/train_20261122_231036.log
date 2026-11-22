@@ -1,0 +1,42 @@
+[2026-11-22 23:10:36] INFO: === Старт обучения ===
+[2026-11-22 23:10:36] INFO: Аргументы: {'train_csv': 'train.csv', 'test_csv': 'test.csv', 'val_csv': 'val.csv', 'base_dir': '.', 'out_dir': 'outputs', 'epochs': 10, 'batch_size': 16, 'lr': 0.01, 'img_size': 224, 'workers': 0, 'seed': 42}
+[2026-11-22 23:10:36] INFO: Устройство: cpu
+[2026-11-22 23:10:36] INFO: train.csv: загружено 1023 изображений, пропущено 0
+[2026-11-22 23:10:36] INFO:   распределение классов: {'zebra': 452, 'bay_horse': 571}
+[2026-11-22 23:10:36] INFO: val.csv: загружено 219 изображений, пропущено 0
+[2026-11-22 23:10:36] INFO:   распределение классов: {'bay_horse': 122, 'zebra': 97}
+[2026-11-22 23:10:36] INFO: test.csv: загружено 220 изображений, пропущено 0
+[2026-11-22 23:10:36] INFO:   распределение классов: {'bay_horse': 123, 'zebra': 97}
+[2026-11-22 23:10:36] INFO: train=1023  val=219  test=220
+[2026-11-22 23:12:08] INFO: Epoch 01/10 | train_loss=0.4033 train_acc=0.8299 | val_loss=0.2730 val_acc=0.8858
+[2026-11-22 23:12:08] INFO:   → сохранена лучшая модель (val_acc=0.8858)
+[2026-11-22 23:13:40] INFO: Epoch 02/10 | train_loss=0.3056 train_acc=0.8807 | val_loss=0.2505 val_acc=0.8767
+[2026-11-22 23:15:08] INFO: Epoch 03/10 | train_loss=0.2622 train_acc=0.9052 | val_loss=0.2066 val_acc=0.9178
+[2026-11-22 23:15:08] INFO:   → сохранена лучшая модель (val_acc=0.9178)
+[2026-11-22 23:16:40] INFO: Epoch 04/10 | train_loss=0.2163 train_acc=0.9169 | val_loss=0.2045 val_acc=0.9224
+[2026-11-22 23:16:40] INFO:   → сохранена лучшая модель (val_acc=0.9224)
+[2026-11-22 23:18:10] INFO: Epoch 05/10 | train_loss=0.2111 train_acc=0.9267 | val_loss=0.1340 val_acc=0.9406
+[2026-11-22 23:18:10] INFO:   → сохранена лучшая модель (val_acc=0.9406)
+[2026-11-22 23:19:39] INFO: Epoch 06/10 | train_loss=0.1845 train_acc=0.9316 | val_loss=0.4077 val_acc=0.8813
+[2026-11-22 23:21:07] INFO: Epoch 07/10 | train_loss=0.1836 train_acc=0.9345 | val_loss=0.1330 val_acc=0.9452
+[2026-11-22 23:21:07] INFO:   → сохранена лучшая модель (val_acc=0.9452)
+[2026-11-22 23:22:36] INFO: Epoch 08/10 | train_loss=0.1521 train_acc=0.9482 | val_loss=0.0678 val_acc=0.9772
+[2026-11-22 23:22:36] INFO:   → сохранена лучшая модель (val_acc=0.9772)
+[2026-11-22 23:24:05] INFO: Epoch 09/10 | train_loss=0.1356 train_acc=0.9570 | val_loss=0.0733 val_acc=0.9726
+[2026-11-22 23:25:44] INFO: Epoch 10/10 | train_loss=0.1296 train_acc=0.9570 | val_loss=0.0670 val_acc=0.9817
+[2026-11-22 23:25:44] INFO:   → сохранена лучшая модель (val_acc=0.9817)
+[2026-11-22 23:25:44] INFO: График обучения: outputs\training_curve.png
+[2026-11-22 23:25:44] INFO: === Тестирование на демо-данных (test.csv) ===
+[2026-11-22 23:25:56] INFO: Test loss:     0.0608
+[2026-11-22 23:25:56] INFO: Test accuracy: 0.9909
+[2026-11-22 23:25:56] INFO: Confusion matrix (rows=true, cols=pred):
+[[123   0]
+ [  2  95]]
+[2026-11-22 23:25:56] INFO:   bay_horse  precision=0.9840 recall=1.0000 f1=0.9919 support=123
+[2026-11-22 23:25:56] INFO:   zebra      precision=1.0000 recall=0.9794 f1=0.9896 support=97
+[2026-11-22 23:25:56] INFO: Ошибочно классифицировано 2 из 220:
+[2026-11-22 23:25:56] INFO:     zebra_0872.jpg  true=zebra  pred=bay_horse
+[2026-11-22 23:25:56] INFO:     zebra_0499.jpg  true=zebra  pred=bay_horse
+[2026-11-22 23:25:56] INFO: Отчёт сохранён: outputs\report_20261122_231036.txt
+[2026-11-22 23:25:56] INFO: Лог сохранён: outputs\logs\train_20261122_231036.log
+[2026-11-22 23:25:56] INFO: === Готово ===

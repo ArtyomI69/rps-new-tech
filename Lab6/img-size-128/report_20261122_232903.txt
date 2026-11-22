@@ -1,0 +1,47 @@
+======================================================================
+Отчёт о классификации изображений: zebra vs bay_horse
+Дата: 2026-11-22 23:38:13
+======================================================================
+
+Устройство: cpu
+train.csv: train.csv
+val.csv  : val.csv
+test.csv : test.csv
+Эпох: 10, batch=16, lr=0.001, img=128x128
+Обучающих: 1023, валидационных: 219, тестовых: 220
+
+--- ТРАНСФОРМАЦИИ ---
+  Train: Resize, RandomHorizontalFlip, RandomRotation(15),
+         ColorJitter(brightness/contrast/saturation=0.3, hue=0.05),
+         JpegCompression(quality=40..90), Normalize
+  Eval : Resize, Normalize
+
+--- РЕЗУЛЬТАТЫ ОБУЧЕНИЯ ---
+  epoch 01: train_loss=0.3946 train_acc=0.8387 val_loss=0.3283 val_acc=0.8356
+  epoch 02: train_loss=0.2725 train_acc=0.9013 val_loss=0.1408 val_acc=0.9315
+  epoch 03: train_loss=0.2274 train_acc=0.9208 val_loss=0.1906 val_acc=0.9635
+  epoch 04: train_loss=0.1717 train_acc=0.9413 val_loss=0.3447 val_acc=0.8493
+  epoch 05: train_loss=0.1682 train_acc=0.9413 val_loss=0.1859 val_acc=0.9315
+  epoch 06: train_loss=0.1427 train_acc=0.9589 val_loss=0.0927 val_acc=0.9772
+  epoch 07: train_loss=0.1322 train_acc=0.9677 val_loss=0.1120 val_acc=0.9772
+  epoch 08: train_loss=0.1016 train_acc=0.9687 val_loss=0.0725 val_acc=0.9863
+  epoch 09: train_loss=0.1101 train_acc=0.9599 val_loss=0.0716 val_acc=0.9909
+  epoch 10: train_loss=0.1036 train_acc=0.9707 val_loss=0.0649 val_acc=0.9863
+
+Лучший val_acc: 0.9909
+
+--- РЕЗУЛЬТАТЫ ТЕСТИРОВАНИЯ ---
+Test loss     : 0.0837
+Test accuracy : 0.9955
+
+Confusion matrix (строки = истина, столбцы = предсказание):
+            pred_bay_horse  pred_zebra
+true_bay_horse         123           0
+true_zebra               1          96
+
+Метрики по классам:
+  bay_horse : precision=0.9919 recall=1.0000 f1=0.9960 support=123
+  zebra     : precision=1.0000 recall=0.9897 f1=0.9948 support=97
+
+Ошибочно классифицировано (1):
+  C:\Users\Artyo\Desktop\NTRPC\Lab4\dataset\zebra_0872.jpg  true=zebra  pred=bay_horse
